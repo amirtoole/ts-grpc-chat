@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "grpc-namespaces": "rimraf proto-gen && mkdir proto-gen && rxjs-grpc -o proto-gen/grpc-namespaces.ts *.proto"
+    "postinstall": "npm run generate-grpc",
+    "generate-grpc": "rimraf proto-gen && mkdir proto-gen && rxjs-grpc -o proto-gen/grpc-namespaces.ts *.proto",
+    "start.server": "nodemon -L -e ts -w ./src/server -x ts-node --no-deprecation src/server/main",
+    "start.client": "ts-node src/client/main.ts"
   },
   "author": "Amir Toole <amir.toole@gmail.com>",
   "license": "MIT",

@@ -8,6 +8,7 @@ const main = async () => {
     const server = serverBuilder<helloworld.ServerBuilder>('helloworld.proto', 'helloworld');
     server.addGreeter({
         sayHello(request: helloworld.HelloRequest): Observable<helloworld.HelloReply> {
+            console.log(`Received request from ${request.name}`);
             return Observable.of({
                 message: `Hi ${request.name}`
             });
@@ -21,6 +22,7 @@ const main = async () => {
     });
 
     server.start(`0.0.0.0:${server_port}`);
+    console.log(`Server started on port ${server_port}`);
 };
 
 main().catch(error => console.error(`[Server] ${error.message}`));

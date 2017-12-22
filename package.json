@@ -1,0 +1,23 @@
+{
+  "name": "ts-grpc-chat",
+  "version": "1.0.0",
+  "description": "ts-node chat app implemented with rxjs-gRPC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "grpc-namespaces": "rimraf proto-gen && mkdir proto-gen && rxjs-grpc -o proto-gen/grpc-namespaces.ts *.proto"
+  },
+  "author": "Amir Toole <amir.toole@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "grpc": "^1.8.0",
+    "rxjs": "^5.5.6",
+    "rxjs-grpc": "^0.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.1",
+    "rimraf": "^2.6.2",
+    "ts-node": "^4.0.2",
+    "typescript": "^2.6.2"
+  }
+}
